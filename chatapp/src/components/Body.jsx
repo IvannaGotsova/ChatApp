@@ -4,7 +4,7 @@ function Body () {
     return (
         <>
           <div>
-            <input/>
+            <input placeholder='Add New Chat Title'/>
             <br />
             <button type="button">Add Chat</button>
             <br />
