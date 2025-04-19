@@ -5,7 +5,7 @@ import users from "../db//users.json"
 const UserLogin = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [status, setStatus] = useState("")
+  const [statusUser, setStatusUserUser] = useState(false)
   const [error, setError] = useState("")
   const navigate = useNavigate()
 
@@ -15,9 +15,10 @@ const UserLogin = () => {
     if (findUser) {
       navigate("/")
       setError("")
-      setStatus(true)
+      setStatusUser(true)
     } else {
-      setError("Invalid User");
+      setError("Invalid User")
+      setStatusUser(false)
     }
   }
 
