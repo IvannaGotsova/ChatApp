@@ -1,8 +1,10 @@
 import users from "../db//users.json"
 import {Popup} from 'reactjs-popup';
+import { useNavigate } from "react-router-dom"
 
 function AllUsers () {
 
+    const navigate = useNavigate()
 
     return (
         <>
@@ -28,6 +30,7 @@ function AllUsers () {
                     <p>Other: {u.other}</p>
                   </div>
                 </Popup>
+                <button onClick={() => navigate('/new-chat')} disabled={u.status == false}>Chat</button>
               </div>
             )
           }
