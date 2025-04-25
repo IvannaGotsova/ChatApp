@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 import users from "../db//users.json"
 import Body from "./Body";
 
-const UserContext = createContext();
 
 function UserLogin () {
 
@@ -15,31 +14,30 @@ function UserLogin () {
   const navigate = useNavigate()
 
   const onClickAfterLogin = () => {
-    
+
     const findUser = users.find((u) => u.user === username && u.password.toString() === password)
 
     if (findUser) {
+
       navigate("/index")
       setError("SUCCESS")
-      setStatusUser(true)
+      setStatusUser()
       setLoginUser(true)
-      console.log(findUser.login)
+      (findUser.login = true)
     } else {
       setError("INVALID USER")
       setStatusUser(false)
     }
 
+    useEffect(() => {
+      console.log("StatusUser updated:", statusUser)
+      console.log("LoginUser updated:", loginUser)
+    }, [statusUser, loginUser])
+
   }
-
-  useEffect(() => {
-    console.log("StatusUser updated:", statusUser)
-    console.log("LoginUser updated:", loginUser)
-  }, [statusUser, loginUser])
-
 
   return (
     <>
-      <UserContext.Provider value={loginUser}>
         <h3>Username and password are required</h3>
         <input type="text" placeholder="Your Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
         <br />
@@ -48,7 +46,6 @@ function UserLogin () {
         <button onClick={onClickAfterLogin}>Login</button>
         <br />
         {error}
-      </UserContext.Provider>
     </>
   )
 
