@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import UserLogin from './components/UserLogin';
+import Error from './components/Error';
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
               <Route path="index" element={<Body />} />
               <Route path="new-chat" element={<NewChat />} />
               <Route path="all-users" element={<AllUsers />} />
+              <Route path='error' element={<Error />}/>
       </Routes>
 
       <br /><br /><br /><br />
