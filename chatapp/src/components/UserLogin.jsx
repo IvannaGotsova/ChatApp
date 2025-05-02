@@ -1,16 +1,19 @@
-import React, { useState, createContext, useContext, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import users from "../db//users.json"
 import Body from "./Body";
+import { Navigate  } from 'react-router-dom'
+
 
 
 function UserLogin () {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [statusUser, setStatusUser] = useState(false)
-  const [loginUser, setLoginUser] = useState(false)
+  const [statusUser, setStatusUser] = useState()
+  const [loginUser, setLoginUser] = useState()
   const [error, setError] = useState("")
+
   const navigate = useNavigate()
 
   const onClickAfterLogin = () => {
@@ -18,23 +21,23 @@ function UserLogin () {
     const findUser = users.find((u) => u.user === username && u.password.toString() === password)
 
     if (findUser) {
-
-      navigate("/index")
+      navigate('/index')
+      console.log(findUser.login)
       setError("SUCCESS")
-      setStatusUser()
+      setStatusUser(true)
       setLoginUser(true)
-      (findUser.login = true)
     } else {
       setError("INVALID USER")
       setStatusUser(false)
     }
-
-    useEffect(() => {
-      console.log("StatusUser updated:", statusUser)
-      console.log("LoginUser updated:", loginUser)
-    }, [statusUser, loginUser])
-
   }
+      
+  useEffect(() => {
+    console.log("StatusUser updated:", statusUser)
+    console.log("LoginUser updated:", loginUser)
+    window.LOGINUSER = loginUser
+    window.STATUSUSER = statusUser
+  }, [statusUser, loginUser])
 
   return (
     <>
@@ -44,6 +47,7 @@ function UserLogin () {
         <input type="password" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <br /><br />
         <button onClick={onClickAfterLogin}>Login</button>
+
         <br />
         {error}
     </>
