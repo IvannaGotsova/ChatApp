@@ -25,6 +25,7 @@ function App() {
               <Route path="all-users" element={<AllUsers />} />
               <Route path="all-users" element={<AllUsers />} />
               <Route path="chat" element={<Chat />} />
+              <Route path="*" element={<Error />} />
       </Routes>
 
       <br /><br /><br /><br />
