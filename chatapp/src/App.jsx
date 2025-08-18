@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import UserLogin from './components/UserLogin';
 import Error from './components/Error';
+import Chat from './components/Chat';
 
 function App() {
   
@@ -22,7 +23,8 @@ function App() {
               <Route path="index" element={<Body />} />
               <Route path="new-chat" element={<NewChat />} />
               <Route path="all-users" element={<AllUsers />} />
-              <Route path='error' element={<Error />}/>
+              <Route path="all-users" element={<AllUsers />} />
+              <Route path="chat" element={<Chat />} />
       </Routes>
 
       <br /><br /><br /><br />
