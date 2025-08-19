@@ -34,7 +34,7 @@ function AllUsers () {
                       <p>Other: {u.other}</p>
                     </div>
                   </Popup>
-                  <button onClick={() => navigate('/new-chat')} disabled={u.status == false}>Chat</button>
+                  <button onClick={() => navigate('/chat')} disabled={u.status == false}>Chat</button>
                 </div>
               )
             }
