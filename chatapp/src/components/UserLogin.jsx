@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import users from "../db//users.json"
-import Body from "./Body";
-import { Navigate  } from 'react-router-dom'
 
 
 

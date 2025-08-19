@@ -1,8 +1,6 @@
 import styles from '../css/Body.module.css'
-import React from 'react'
 import { useNavigate } from "react-router-dom"
 import { Navigate  } from 'react-router-dom'
-import users from "../db//users.json"
 
 
 function Body () {

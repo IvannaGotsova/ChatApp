@@ -1,8 +1,6 @@
 import users from "../db//users.json"
-import {Popup} from 'reactjs-popup';
 import { useNavigate } from "react-router-dom"
 import { Navigate  } from 'react-router-dom'
-import Chat from "./Chat";
 
 function NewChat () {
 
